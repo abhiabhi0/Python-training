@@ -21,3 +21,17 @@ class Queue:
 		else:
 			self.__rear += 1
 			self.__elements[self.__rear] = data
+
+	def dequeue(self):
+		if (self.is_empty()):
+			print("Queue is empty!!")
+		else:
+			data = self.__elements[self.__front]
+			self.__front += 1
+			return data
+
+	def display(self):
+		for index in range(self.__front, self.__rear + 1):
+			print(self.__elements[index])
+
+
