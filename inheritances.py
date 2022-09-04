@@ -6,6 +6,9 @@ class ParentClass:
 
 # Child class
 class ChildClass(ParentClass):
+    def par_func(self):
+        print("Parent func in child")
+        
     def child_func(self):
          print("I am child class function")
 
