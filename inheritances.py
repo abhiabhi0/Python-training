@@ -21,29 +21,37 @@ obj1.child_func()
 #Multilevel Inheritance
 # Parent class
 class A:
-   def __init__(self, a_name):
+    def __init__(self, a_name):
        self.a_name = a_name
+
+    def display_names(self):
+        print("A name : ", self.a_name)
    
 # Intermediate class
 class B(A):
-   def __init__(self, b_name, a_name):
+    def __init__(self, b_name, a_name):
        self.b_name = b_name
        # invoke constructor of class A
        A.__init__(self, a_name)
 
+    def display_names(self):
+       print("A name : ", self.a_name)
+       print("B name : ", self.b_name)
+
 # Child class
 class C(B):
-   def __init__(self,c_name, b_name, a_name):
+    def __init__(self,c_name, b_name, a_name):
        self.c_name = c_name
        # invoke constructor of class B
        B.__init__(self, b_name, a_name)
        
-   def display_names(self):
+    def display_names(self):
        print("A name : ", self.a_name)
        print("B name : ", self.b_name)
        print("C name : ", self.c_name)
 
 #  Driver code
+print("Multilevel Inheritance")
 obj1 = C('child', 'intermediate', 'parent')
 print(obj1.a_name)
 obj1.display_names()
@@ -51,23 +59,35 @@ obj1.display_names()
 # Multiple Inheritance
 # Parent class1
 class Parent1:
-   def parent1_func(self):
+    def parent1_func(self):
        print("Hi I am first Parent")
 
 # Parent class2
 class Parent2:
-   def parent2_func(self):
+    def parent1_func(self):
+       print("Hi I am Parent2")
+
+    def parent2_func(self):
        print("Hi I am second Parent")
 
 # Child class
 class Child(Parent1, Parent2):
-   def child_func(self):
+
+    def parent1_func(self):
+       print("Hi I am CHild")
+
+    def parent2_func(self):
+       print("Hi I am second Child")
+
+    def child_func(self):
        self.parent1_func()
        self.parent2_func()
 
 # Driver's code
+print("Multiple Inheritance")
 obj1 = Child()
-obj1.child_func()
+#obj1.child_func()
+obj1.parent1_func()
 
 # Hierarchical Inheritance
 # Base class
